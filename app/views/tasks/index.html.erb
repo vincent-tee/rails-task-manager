@@ -1,0 +1,15 @@
+<div class=m-3>
+<h1>My Tasks</h1>
+<% @tasks.each do |task| %>
+<p><i class="fa-solid fa-square<% task.completed ? '-check' : '' %>">
+<%= link_to task.title, task_path(task), class:"text-decoration-none" %>
+<%= link_to task_path(task), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to DESTROY #{task.title}?"}, class: "text-decoration-none" do %>
+<i class="fa-solid fa-person-falling-burst"></i>
+<% end %>
+</p>
+<%# symbol at the start or unchecked if no task %>
+<% end %>
+<%= link_to new_task_path, class: "text-decoration-none" do %>
+<i class="fa-solid fa-plus"></i> Add a new Task
+<% end %>
+</div>

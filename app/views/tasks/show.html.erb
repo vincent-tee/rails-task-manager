@@ -1,0 +1,18 @@
+<div class="w-50 m-3">
+  <div class="d-flex justify-content-between align-items-center">
+    <h1><%= @task.title %></h1>
+    <%= link_to 'Edit this task', edit_task_path(@task), class:"text-decoration-none" %>
+  </div>
+  <div class="alert alert-secondary"><%= @task.details %></div>
+  <% if @task.completed %>
+    <div><i class="fa-solid fa-square-check"></i> Woohoo! This task is complete!</div>
+  <% else %>
+    <div><i class="fa-solid fa-square"></i> This task is incomplete.</div>
+  <% end %>
+  <%# how do I want to mark the checkbox as checked when the task is complete? %>
+  <div class=mt-1>
+    <%= link_to tasks_path, class:"text-decoration-none" do %>
+     <i class="fa-solid fa-angles-left"></i> Back to list
+    <% end %>
+  </div>
+</div>
